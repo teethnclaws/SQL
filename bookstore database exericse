@@ -1,0 +1,20 @@
+CREATE TABLE books (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, section TEXT, price_in_$ INTEGER);
+
+INSERT INTO books VALUES (1, "The Witch With No Name", 3, "science fiction", 3);
+INSERT INTO books VALUES (2, "The Modern Breakup", 9, "relationships", 7);
+INSERT INTO books VALUES (3, "Entangled Life", 23, "science/biolody", 5);
+INSERT INTO books VALUES (4, "From Here to Eternity", 15, "science/biology", 9);
+INSERT INTO books VALUES (5, "Everybody Writes", 23, "writing", 10); 
+INSERT INTO books VALUES (6, "How Birds Work", 33, "biology", 5);
+INSERT INTO books VALUES (7, "Strong Female Lead", 40, "history", 23);
+INSERT INTO books VALUES (8, "American Seoul", 15, "history", 17);
+INSERT INTO books VALUES (9, "Seeds", 40, "science/nature", 12);
+INSERT INTO books VALUES (10, "Fair Play", 22, "relationships", 22);
+INSERT INTO books VALUES (11, "Cast Iron Cooking", 34, "cooking", 34);
+INSERT INTO books VALUES (12, "Digital Retirement", 45, "investing and retirement", 13);
+INSERT INTO books VALUES (13, "Email Tips", 30, "marketing advice", 12);
+INSERT INTO books VALUES (14, "Classic Cars", 34, "history", 23);
+INSERT INTO books VALUES (15, "Embroidery", 55, "fiber arts", 30);
+
+SELECT * FROM books ORDER BY price_in_$;
+
