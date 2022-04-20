@@ -1,0 +1,54 @@
+CREATE TABLE exercise_logs
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    minutes INTEGER, 
+    calories INTEGER,
+    heart_rate INTEGER);
+
+
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("biking", 30, 100, 110);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("biking", 10, 30, 105);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("dancing", 15, 200, 120);
+
+SELECT * FROM exercise_logs WHERE calories > 50 ORDER BY calories;
+
+/* AND */
+SELECT * FROM exercise_logs WHERE calories > 50 AND minutes < 30;
+
+/* OR */
+SELECT * FROM exercise_logs WHERE calories > 50 OR heart_rate > 100;
+
+
+/* Notes
+Here, for example, we’re assigning an AUTOINCREMENT to the ID statement so we won’t have to assign the ID (e.g., 1, 2, 3…) manually. Instead, the system will do that for us, automatically adding 1 to the next upcoming thing on the list. 
+
+So we create the table, in this case, exercise_logs, assign an autoincrementing ID and assign the appropriate column data with the information types (e.g., integer or text). 
+
+If we want to query which activities likely burned the most calories, we go about augmenting the SELECT * FROM exercise_logs adding WHERE calories > 50 and ORDER BY the CALORIES column. 
+
+Which would look like this (see image above too):
+SELECT * FROM exercise_logs
+WHERE calories > 50
+ORDER BY calories;
+
+Now. What if I want to know what activities I did to burn more than 50 calories, but also take less than 30 minutes? At a glance at the example, we’re given it looks easy enough to discern, but imagine if we had a database with dozens of rows of data to query from.
+
+Here, I would use the AND operator. AND will only include rows where both conditions are true. In this case, if we want to know what activities burn more than 50 calories and also take less than 30 minutes we write it out this way:
+
+SELECT * FROM exericise_log
+WHERE calories > 50
+AND minutes < 30;
+
+In the example, we get the result of dancing as the fastest activity that will burn the most calories.
+
+OR is another operator that could be used as well. OR will include all rows where either condition could be true. In the example given, we use the following query to assess rules for an exercise burning more than 50 calories and is the most vigorous, so we add in the information for the heart_rate column. 
+
+SELECT * FROM exercise_logs
+WHERE calories > 50
+OR heart_rate > 100;
+
+The results come back with three results that match the rules we’ve set in the query with the exception of biking. Biking is on here twice because it can meet both of the rules for burning more than 50 calories or increating the heart_rate above 100. 
+
+For AND and OR, you can use them as many times in a query as you like. However, if both are in the same query, AND will have priority or precedence over the OR unless you apply (parathesis) similarly to how you would with math expressions. 
+
+*/
