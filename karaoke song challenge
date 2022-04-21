@@ -23,11 +23,13 @@ INSERT INTO songs (title, artist, mood, duration, released)
 INSERT INTO songs (title, artist, mood, duration, released)
     VALUES ("Call me maybe", "Carly Rae Jepsen", "happy", 193, 2011);
     
-/*Step 1. Selecting title, the column we want to isolate from song, the table we are querying) */
+/*Step 1. Selecting title, the column we want to isolate from song, the table we are querying. */
 SELECT title FROM songs;
 
-/*Step 2. Selecting using the or operator so we can retrieve song titles that are considered epic or were released after 1990. Remember, we're going to get results that could apply to either rule we've applied. If we wanted only results that had both, we'd use AND */
+/*Step 2. Selecting using the or operator so we can retrieve song titles that are considered epic or were released after 1990. 
+Remember, we're going to get results that could apply to either rule we've applied. If we wanted only results that had both, we'd use AND. */
 SELECT title FROM songs WHERE mood is "epic" OR released > 1990;
 
-/*Step 3. Selecting song titles that are epic, released after 1990, and less than 4 minutes long. In this case we need to calculate 4 minutes = 240 minutes in duration for this to work. */
+/*Step 3. Selecting song titles that are epic, released after 1990, and less than 4 minutes long. 
+In this case we need to calculate 4 minutes = 240 minutes in duration for this to work. */
 SELECT title FROM songs WHERE mood is "epic" AND released > 1990 AND duration < 240;
